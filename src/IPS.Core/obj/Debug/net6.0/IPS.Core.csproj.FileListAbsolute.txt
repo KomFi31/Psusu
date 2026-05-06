@@ -1,0 +1,12 @@
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\IPS.Core.csproj.AssemblyReference.cache
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\IPS.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\IPS.Core.AssemblyInfoInputs.cache
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\IPS.Core.AssemblyInfo.cs
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\IPS.Core.csproj.CoreCompileInputs.cache
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\bin\Debug\net6.0\IPS.Core.deps.json
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\bin\Debug\net6.0\IPS.Core.dll
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\bin\Debug\net6.0\IPS.Core.pdb
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\IPS.Core.dll
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\refint\IPS.Core.dll
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\IPS.Core.pdb
+C:\Users\mavev\Downloads\IPS\src\IPS.Core\obj\Debug\net6.0\ref\IPS.Core.dll

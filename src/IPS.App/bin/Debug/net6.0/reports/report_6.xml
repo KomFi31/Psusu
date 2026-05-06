@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report Timestamp="2026-05-06T20:15:27">
+  <ExecutedByType>
+    <Item Type="Prime" Count="4263" />
+    <Item Type="IO" Count="3459" />
+  </ExecutedByType>
+  <AverageDurationByType>
+    <Item Type="Prime" AverageMs="0.32" />
+    <Item Type="IO" AverageMs="806.21" />
+  </AverageDurationByType>
+  <FailedByType>
+    <Item Type="IO" Count="877" />
+  </FailedByType>
+</Report>

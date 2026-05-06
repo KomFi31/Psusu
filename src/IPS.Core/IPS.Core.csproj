@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>IPS</RootNamespace>
+    <AssemblyName>IPS.Core</AssemblyName>
+  </PropertyGroup>
+	<ItemGroup>
+		<InternalsVisibleTo Include="IPS.Tests" />
+	</ItemGroup>
+</Project>
