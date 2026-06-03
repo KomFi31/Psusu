@@ -1,1 +1,1 @@
-Poenta ovog repozitorijuma je da se predaaju kolokvijumi / projekti asistentu, nije namenjen za ništa dalje od toga i nije od javnog značaja van samog predmeta.
+Master branch predstavlja prvi kolokvijum iz predmeta PSUSU. To je upravo i poenta ovoga repozitorijuma. Radjen je producer-consumer arhitektura i proveravanje rada sa testovima 
