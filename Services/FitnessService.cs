@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FitnessCentar.Services
+namespace FitnessCentar.Services 
 {
     public class FitnessService
     {

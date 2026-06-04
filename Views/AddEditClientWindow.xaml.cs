@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
+using System.Linq;
 
 namespace FitnessCentar.Views //Svrha ovog fajla je da bi omogucio interakciju klijentskog prozora i programa / baze.
 {
@@ -87,11 +88,12 @@ namespace FitnessCentar.Views //Svrha ovog fajla je da bi omogucio interakciju k
             {
                 return;
             }
+            TryParseWeight(WeightTextBox.Text, out double weight);
 
+            Client.Weight = weight;
             Client.FirstName = FirstNameTextBox.Text.Trim();
             Client.LastName = LastNameTextBox.Text.Trim();
             Client.Age = int.Parse(AgeTextBox.Text.Trim());
-            Client.Weight = double.Parse(WeightTextBox.Text.Trim(), CultureInfo.InvariantCulture);
             Client.Goal = GoalTextBox.Text.Trim();
             Client.PhoneNumber = PhoneNumberTextBox.Text.Trim();
             Client.MembershipStartDate = MembershipStartDatePicker.SelectedDate!.Value;
@@ -107,19 +109,32 @@ namespace FitnessCentar.Views //Svrha ovog fajla je da bi omogucio interakciju k
             Close();
         }
 
+        private bool TryParseWeight(string input, out double weight) //Ovaj dodatak se bavi Quality of Life-om aplikacije
+        {
+            // Prihvatamo i zarez i tačku kao decimalni separator.
+            string normalizedInput = input.Trim().Replace(',', '.');
+
+            return double.TryParse(
+                normalizedInput,
+                NumberStyles.Any,
+                CultureInfo.InvariantCulture,
+                out weight
+            );
+        }
+
         // Osnovne provere unosa pre slanja podataka ka glavnom prozoru.
         private bool ValidateForm()
         {
-            if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
+            if (FirstNameTextBox.Text.Trim().Length < 2) //Korekcija da nemamo besmislena imena (izvinjavam se strancima)
             {
-                ShowValidationMessage("Ime klijenta je obavezno.");
+                ShowValidationMessage("Ime mora imati najmanje 2 karaktera.");
                 FirstNameTextBox.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(LastNameTextBox.Text))
+            if (LastNameTextBox.Text.Trim().Length < 2) //Ista prica
             {
-                ShowValidationMessage("Prezime klijenta je obavezno.");
+                ShowValidationMessage("Prezime mora imati najmanje 2 karaktera.");
                 LastNameTextBox.Focus();
                 return false;
             }
@@ -138,9 +153,9 @@ namespace FitnessCentar.Views //Svrha ovog fajla je da bi omogucio interakciju k
                 return false;
             }
 
-            if (!double.TryParse(WeightTextBox.Text.Trim(), NumberStyles.Any, CultureInfo.InvariantCulture, out double weight))
+            if (!TryParseWeight(WeightTextBox.Text, out double weight))
             {
-                ShowValidationMessage("Težina mora biti broj. Koristite tačku za decimalni zapis, npr. 82.5.");
+                ShowValidationMessage("Težina mora biti broj. Možete koristiti tačku ili zarez, npr. 82.5 ili 82,5.");
                 WeightTextBox.Focus();
                 return false;
             }
@@ -159,6 +174,8 @@ namespace FitnessCentar.Views //Svrha ovog fajla je da bi omogucio interakciju k
                 return false;
             }
 
+            //v za proveru telefona
+
             if (string.IsNullOrWhiteSpace(PhoneNumberTextBox.Text))
             {
                 ShowValidationMessage("Broj telefona je obavezan.");
@@ -166,9 +183,44 @@ namespace FitnessCentar.Views //Svrha ovog fajla je da bi omogucio interakciju k
                 return false;
             }
 
+            string phoneNumber = PhoneNumberTextBox.Text.Trim();
+
+            bool hasInvalidPhoneCharacters = phoneNumber.Any(character =>
+                !char.IsDigit(character) &&
+                character != '+' &&
+                character != '-' &&
+                character != '/' &&
+                character != ' '
+            );
+
+            if (hasInvalidPhoneCharacters)
+            {
+                ShowValidationMessage("Telefon može sadržati samo cifre, razmak i znakove +, - ili /.");
+                PhoneNumberTextBox.Focus();
+                return false;
+            }
+
+            int digitCount = phoneNumber.Count(char.IsDigit);
+
+            if (digitCount < 6)
+            {
+                ShowValidationMessage("Telefon mora sadržati najmanje 6 cifara.");
+                PhoneNumberTextBox.Focus();
+                return false;
+            }
+
+            //^ za proveru telefona
+
             if (MembershipStartDatePicker.SelectedDate == null)
             {
                 ShowValidationMessage("Datum početka članstva je obavezan.");
+                MembershipStartDatePicker.Focus();
+                return false;
+            }
+
+            if (MembershipStartDatePicker.SelectedDate.Value.Date > DateTime.Now.Date) //provera da se ne unese nevalidan datum tj. u buducnosti
+            {
+                ShowValidationMessage("Datum početka članstva ne može biti u budućnosti.");
                 MembershipStartDatePicker.Focus();
                 return false;
             }

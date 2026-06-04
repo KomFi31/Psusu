@@ -76,11 +76,18 @@ namespace FitnessCentar.Views //Ovaj cs fajl sluzi da bi prozor koji pravimo u x
         }
 
         // Osnovna validacija unosa pre slanja podataka ka glavnom prozoru.
-        private bool ValidateForm()
+        private bool ValidateForm() //Validacija je korigovana radi Quality of Life.
         {
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
             {
                 ShowValidationMessage("Ime trenera je obavezno.");
+                FirstNameTextBox.Focus();
+                return false;
+            }
+
+            if (FirstNameTextBox.Text.Trim().Length < 2)
+            {
+                ShowValidationMessage("Ime mora imati najmanje 2 karaktera.");
                 FirstNameTextBox.Focus();
                 return false;
             }
@@ -92,9 +99,23 @@ namespace FitnessCentar.Views //Ovaj cs fajl sluzi da bi prozor koji pravimo u x
                 return false;
             }
 
+            if (LastNameTextBox.Text.Trim().Length < 2)
+            {
+                ShowValidationMessage("Prezime mora imati najmanje 2 karaktera.");
+                LastNameTextBox.Focus();
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(SpecializationTextBox.Text))
             {
                 ShowValidationMessage("Specijalizacija je obavezna.");
+                SpecializationTextBox.Focus();
+                return false;
+            }
+
+            if (SpecializationTextBox.Text.Trim().Length < 3)
+            {
+                ShowValidationMessage("Specijalizacija mora imati najmanje 3 karaktera.");
                 SpecializationTextBox.Focus();
                 return false;
             }
