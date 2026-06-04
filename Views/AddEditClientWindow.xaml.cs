@@ -1,10 +1,7 @@
 ﻿using FitnessCentar.Models;
 using FitnessCentar.Services;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
-using System.Linq;
 
 namespace FitnessCentar.Views //Svrha ovog fajla je da bi omogucio interakciju klijentskog prozora i programa / baze.
 {

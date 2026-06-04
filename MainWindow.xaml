@@ -54,23 +54,27 @@
                                 Width="130"
                                 Height="36"
                                 Margin="0,0,10,0"
+                                Style="{StaticResource PrimaryButtonStyle}"
                                 Click="AddTrainerButton_Click"/>
 
                         <Button Content="Detalji"
                                 Width="100"
                                 Height="36"
                                 Margin="0,0,10,0"
+                                Style="{StaticResource SecondaryButtonStyle}"
                                 Click="TrainerDetailsButton_Click"/>
 
                         <Button Content="Izmeni"
                                 Width="100"
                                 Height="36"
                                 Margin="0,0,10,0"
+                                Style="{StaticResource SecondaryButtonStyle}"
                                 Click="EditTrainerButton_Click"/>
 
                         <Button Content="Obriši"
                                 Width="100"
                                 Height="36"
+                                Style="{StaticResource DangerButtonStyle}"
                                 Click="DeleteTrainerButton_Click"/>
                     </StackPanel>
 
@@ -133,23 +137,27 @@
                                 Width="130"
                                 Height="36"
                                 Margin="0,0,10,0"
+                                Style="{StaticResource PrimaryButtonStyle}"
                                 Click="AddClientButton_Click"/>
 
                         <Button Content="Detalji"
                                 Width="100"
                                 Height="36"
                                 Margin="0,0,10,0"
+                                Style="{StaticResource SecondaryButtonStyle}"
                                 Click="ClientDetailsButton_Click"/>
 
                         <Button Content="Izmeni"
                                 Width="100"
                                 Height="36"
                                 Margin="0,0,10,0"
+                                Style="{StaticResource SecondaryButtonStyle}"
                                 Click="EditClientButton_Click"/>
 
                         <Button Content="Obriši"
                                 Width="100"
                                 Height="36"
+                                Style="{StaticResource DangerButtonStyle}"
                                 Click="DeleteClientButton_Click"/>
                     </StackPanel>
 

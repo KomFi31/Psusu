@@ -1,5 +1,4 @@
 ﻿using FitnessCentar.Models;
-using System;
 using System.Windows;
 
 namespace FitnessCentar.Views //Ovaj cs fajl sluzi da bi prozor koji pravimo u xaml mogao da interaguje sa programom.

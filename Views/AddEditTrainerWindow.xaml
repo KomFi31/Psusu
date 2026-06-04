@@ -99,11 +99,13 @@
                     Width="110"
                     Height="36"
                     Margin="0,0,10,0"
+                    Style="{StaticResource PrimaryButtonStyle}"
                     Click="SaveButton_Click"/>
 
             <Button Content="Odustani"
                     Width="110"
                     Height="36"
+                    Style="{StaticResource SecondaryButtonStyle}"
                     Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>

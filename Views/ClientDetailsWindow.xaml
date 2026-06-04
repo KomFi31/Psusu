@@ -135,6 +135,7 @@
                 Height="36"
                 HorizontalAlignment="Right"
                 Margin="0,20,0,0"
+                Style="{StaticResource SecondaryButtonStyle}"
                 Click="CloseButton_Click"/>
     </Grid>
 </Window>

@@ -1,7 +1,6 @@
 ﻿using FitnessCentar.Models;
 using FitnessCentar.Services;
 using FitnessCentar.Views;
-using System;
 using System.Windows;
 
 namespace FitnessCentar

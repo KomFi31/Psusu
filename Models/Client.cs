@@ -1,6 +1,4 @@
-﻿using FitnessCentar.Models;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FitnessCentar.Models
 {
