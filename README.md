@@ -1,2 +1,22 @@
-Dati branch predstavlja drugi kolokvijum iz predmeta PSUSU. Svrha ovog projekta je kreirati WPF aplikaciju koja simulira rad sa bazom podataka gde imamo relaciju 1->N.
-U nasem slucaju, to je baza fitnessCentar/FitnessCenter i simulira CRUD operacije sa Trener->Klijenti arhitekturom.
+# FitnessCentar
+
+WPF aplikacija za evidenciju trenera i klijenata u fitness centru.
+
+Projekat je rađen kao kolokvijumski zadatak iz predmeta **PSUSU**. Aplikacija omogućava rad sa dve povezane tabele u bazi podataka: `Trainers` i `Clients`.
+
+## Tehnologije
+
+- C#
+- WPF
+- .NET 8
+- Entity Framework Core
+- SQL Server LocalDB
+
+## Opis domena
+
+Aplikacija modeluje jednostavan sistem fitness centra.
+
+Relacija između tabela je:
+
+```text
+Trainer  1 --- N Client
