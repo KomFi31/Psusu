@@ -1,0 +1,99 @@
+﻿<Window x:Class="FitnessCentar.Views.TrainerDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Detalji trenera"
+        Height="430"
+        Width="520"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#F3F4F6">
+
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Detalji trenera"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="#111827"
+                   Margin="0,0,0,20"/>
+
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="10"
+                Padding="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0"
+                           Text="ID:"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,14"/>
+
+                <TextBlock x:Name="TrainerIdTextBlock"
+                           Grid.Row="0" Grid.Column="1"
+                           Margin="0,0,0,14"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0"
+                           Text="Ime:"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,14"/>
+
+                <TextBlock x:Name="FirstNameTextBlock"
+                           Grid.Row="1" Grid.Column="1"
+                           Margin="0,0,0,14"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0"
+                           Text="Prezime:"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,14"/>
+
+                <TextBlock x:Name="LastNameTextBlock"
+                           Grid.Row="2" Grid.Column="1"
+                           Margin="0,0,0,14"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0"
+                           Text="Specijalizacija:"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,14"/>
+
+                <TextBlock x:Name="SpecializationTextBlock"
+                           Grid.Row="3" Grid.Column="1"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,14"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0"
+                           Text="Godine iskustva:"
+                           FontWeight="SemiBold"
+                           Margin="0,0,10,0"/>
+
+                <TextBlock x:Name="YearsOfExperienceTextBlock"
+                           Grid.Row="4" Grid.Column="1"/>
+            </Grid>
+        </Border>
+
+        <Button Grid.Row="2"
+                Content="Zatvori"
+                Width="110"
+                Height="36"
+                HorizontalAlignment="Right"
+                Margin="0,20,0,0"
+                Click="CloseButton_Click"/>
+    </Grid>
+</Window>

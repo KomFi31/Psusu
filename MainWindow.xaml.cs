@@ -87,7 +87,6 @@ namespace FitnessCentar
         {
             var selectedTrainer = GetSelectedTrainer();
 
-            // Korisnik mora prvo da izabere red iz tabele.
             if (selectedTrainer == null)
             {
                 MessageBox.Show(
@@ -100,15 +99,12 @@ namespace FitnessCentar
                 return;
             }
 
-            MessageBox.Show(
-                $"Trener: {selectedTrainer.FirstName} {selectedTrainer.LastName}\n" +
-                $"Specijalizacija: {selectedTrainer.Specialization}\n" +
-                $"Godine iskustva: {selectedTrainer.YearsOfExperience}\n" +
-                $"Broj klijenata: {selectedTrainer.Clients.Count}",
-                "Detalji trenera",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+            var window = new TrainerDetailsWindow(selectedTrainer)
+            {
+                Owner = this
+            };
+
+            window.ShowDialog();
         }
 
         private void EditTrainerButton_Click(object sender, RoutedEventArgs e)
@@ -263,18 +259,12 @@ namespace FitnessCentar
                 return;
             }
 
-            MessageBox.Show(
-                $"Klijent: {selectedClient.FirstName} {selectedClient.LastName}\n" +
-                $"Godine: {selectedClient.Age}\n" +
-                $"Težina: {selectedClient.Weight} kg\n" +
-                $"Cilj: {selectedClient.Goal}\n" +
-                $"Telefon: {selectedClient.PhoneNumber}\n" +
-                $"Datum članstva: {selectedClient.MembershipStartDate:dd.MM.yyyy}\n" +
-                $"Trener: {selectedClient.Trainer}",
-                "Detalji klijenta",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+            var window = new ClientDetailsWindow(selectedClient)
+            {
+                Owner = this
+            };
+
+            window.ShowDialog();
         }
 
         private void EditClientButton_Click(object sender, RoutedEventArgs e)
