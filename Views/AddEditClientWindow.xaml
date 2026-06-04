@@ -1,0 +1,148 @@
+﻿<Window x:Class="FitnessCentar.Views.AddEditClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Klijent"
+        Height="620"
+        Width="520"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#F3F4F6">
+
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="TitleTextBlock"
+                   Grid.Row="0"
+                   Text="Dodavanje klijenta"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="#111827"
+                   Margin="0,0,0,20"/>
+
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="10"
+                Padding="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0"
+                           Text="Ime:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,12"/>
+
+                <TextBox x:Name="FirstNameTextBox"
+                         Grid.Row="0" Grid.Column="1"
+                         Height="32"
+                         Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0"
+                           Text="Prezime:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,12"/>
+
+                <TextBox x:Name="LastNameTextBox"
+                         Grid.Row="1" Grid.Column="1"
+                         Height="32"
+                         Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0"
+                           Text="Godine:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,12"/>
+
+                <TextBox x:Name="AgeTextBox"
+                         Grid.Row="2" Grid.Column="1"
+                         Height="32"
+                         Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0"
+                           Text="Težina (kg):"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,12"/>
+
+                <TextBox x:Name="WeightTextBox"
+                         Grid.Row="3" Grid.Column="1"
+                         Height="32"
+                         Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0"
+                           Text="Cilj:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,12"/>
+
+                <TextBox x:Name="GoalTextBox"
+                         Grid.Row="4" Grid.Column="1"
+                         Height="32"
+                         Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="0"
+                           Text="Telefon:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,12"/>
+
+                <TextBox x:Name="PhoneNumberTextBox"
+                         Grid.Row="5" Grid.Column="1"
+                         Height="32"
+                         Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="0"
+                           Text="Datum članstva:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,12"/>
+
+                <DatePicker x:Name="MembershipStartDatePicker"
+                            Grid.Row="6" Grid.Column="1"
+                            Height="32"
+                            Margin="0,0,0,12"/>
+
+                <TextBlock Grid.Row="7" Grid.Column="0"
+                           Text="Trener:"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"/>
+
+                <ComboBox x:Name="TrainerComboBox"
+                          Grid.Row="7" Grid.Column="1"
+                          Height="32"
+                          DisplayMemberPath=""
+                          SelectedValuePath="TrainerId"/>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,20,0,0">
+
+            <Button Content="Sačuvaj"
+                    Width="110"
+                    Height="36"
+                    Margin="0,0,10,0"
+                    Click="SaveButton_Click"/>
+
+            <Button Content="Odustani"
+                    Width="110"
+                    Height="36"
+                    Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

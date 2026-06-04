@@ -1,5 +1,6 @@
 ﻿using FitnessCentar.Models;
 using FitnessCentar.Services;
+using FitnessCentar.Views;
 using System;
 using System.Windows;
 
@@ -50,13 +51,36 @@ namespace FitnessCentar
 
         private void AddTrainerButton_Click(object sender, RoutedEventArgs e)
         {
-            // Ovaj deo će kasnije otvarati poseban prozor za unos trenera.
-            MessageBox.Show(
-                "Ovde će biti otvoren prozor za dodavanje trenera.",
-                "Dodavanje trenera",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+            var window = new AddEditTrainerWindow
+            {
+                Owner = this
+            };
+
+            if (window.ShowDialog() == true)
+            {
+                try
+                {
+                    _fitnessService.AddTrainer(window.Trainer);
+
+                    LoadData();
+
+                    MessageBox.Show(
+                        "Trener je uspešno dodat.",
+                        "Uspešno dodavanje",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        ex.Message,
+                        "Greška prilikom dodavanja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
         }
 
         private void TrainerDetailsButton_Click(object sender, RoutedEventArgs e)
@@ -103,13 +127,36 @@ namespace FitnessCentar
                 return;
             }
 
-            // Kasnije će se ovde proslediti selektovani trener u formu za izmenu.
-            MessageBox.Show(
-                "Ovde će biti otvoren prozor za izmenu trenera.",
-                "Izmena trenera",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+            var window = new AddEditTrainerWindow(selectedTrainer)
+            {
+                Owner = this
+            };
+
+            if (window.ShowDialog() == true)
+            {
+                try
+                {
+                    _fitnessService.UpdateTrainer(window.Trainer);
+
+                    LoadData();
+
+                    MessageBox.Show(
+                        "Podaci o treneru su uspešno izmenjeni.",
+                        "Uspešna izmena",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        ex.Message,
+                        "Greška prilikom izmene",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
         }
 
         private void DeleteTrainerButton_Click(object sender, RoutedEventArgs e)
@@ -168,13 +215,36 @@ namespace FitnessCentar
 
         private void AddClientButton_Click(object sender, RoutedEventArgs e)
         {
-            // Ovaj deo će kasnije otvarati formu za unos novog klijenta.
-            MessageBox.Show(
-                "Ovde će biti otvoren prozor za dodavanje klijenta.",
-                "Dodavanje klijenta",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+            var window = new AddEditClientWindow
+            {
+                Owner = this
+            };
+
+            if (window.ShowDialog() == true)
+            {
+                try
+                {
+                    _fitnessService.AddClient(window.Client);
+
+                    LoadData();
+
+                    MessageBox.Show(
+                        "Klijent je uspešno dodat.",
+                        "Uspešno dodavanje",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        ex.Message,
+                        "Greška prilikom dodavanja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
         }
 
         private void ClientDetailsButton_Click(object sender, RoutedEventArgs e)
@@ -223,13 +293,36 @@ namespace FitnessCentar
                 return;
             }
 
-            // Kasnije će se selektovani klijent proslediti prozoru za izmenu.
-            MessageBox.Show(
-                "Ovde će biti otvoren prozor za izmenu klijenta.",
-                "Izmena klijenta",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information
-            );
+            var window = new AddEditClientWindow(selectedClient)
+            {
+                Owner = this
+            };
+
+            if (window.ShowDialog() == true)
+            {
+                try
+                {
+                    _fitnessService.UpdateClient(window.Client);
+
+                    LoadData();
+
+                    MessageBox.Show(
+                        "Podaci o klijentu su uspešno izmenjeni.",
+                        "Uspešna izmena",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        ex.Message,
+                        "Greška prilikom izmene",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                }
+            }
         }
 
         private void DeleteClientButton_Click(object sender, RoutedEventArgs e)
